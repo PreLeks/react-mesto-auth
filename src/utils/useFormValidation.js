@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-const FormValid = (upperInput, lowerInput) => {
+const useFormValidation = (upperInput, lowerInput) => {
 
   const [isUpperInputValid, setIsUpperInputValid] = useState(false);
   const [isLowerInputValid, setIsLowerInputValid] = useState(false);
@@ -26,4 +26,4 @@ const FormValid = (upperInput, lowerInput) => {
   return {handleUpperInputChange, handleLowerInputChange, onValid, resetValid, isButtonValid};
 }
 
-export default FormValid;
+export default useFormValidation;

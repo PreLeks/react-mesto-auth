@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import ProtectedRoute from "./ProtectedRoute";
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-import ImagePopup from './ImagePopup';
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import Popup from "./Popup";
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
+import ImagePopup from './ImagePopup';
 import DeleteCardPopup from "./DeleteCardPopup";
-import api from "../utils/Api";
-import auth from "../utils/Auth";
-import Token from "../utils/Token";
-import { Route, Switch, withRouter } from 'react-router-dom';
-import Popup from "./Popup";
-import ProtectedRoute from "./ProtectedRoute";
+import InfoTooltip from './InfoTooltip';
 import Register from './Register';
 import Login from './Login';
-import InfoTooltip from './InfoTooltip';
 import AcceptRegist from '../images/Accept-registration.png';
 import RejectRegist from '../images/rejectRegistration.png';
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import api from "../utils/api";
+import auth from "../utils/auth";
+import Token from "../utils/token";
 
 function App({ history }) {
 
@@ -70,9 +70,7 @@ function App({ history }) {
           setIsInfoTooltipPopupOpen(true);
           setImageForInfoTooltip(AcceptRegist);
           setTextForInfoTooltip("Вы успешно зарегистрировались!");
-          setUserEmail(formData.email);
-          setLoggedIn(true);
-          history.push('/')
+          history.push('/sign-in')
         }
       })
       .catch(() => {

@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import LabelSet from "./LabelSet";
-import FormValid from "../utils/FormValid";
+import useFormValidation from "../utils/useFormValidation";
 
 const SignUp = ({ title, btnText, isLogin, onSubmit }) => {
 
     const userEmailRef = useRef();
     const userPasswordRef = useRef();
-    const { handleUpperInputChange, handleLowerInputChange, isButtonValid } = FormValid(userEmailRef, userPasswordRef);
+    const { handleUpperInputChange, handleLowerInputChange, isButtonValid } = useFormValidation(userEmailRef, userPasswordRef);
 
     const handleSubmit = (e) => {
         e.preventDefault();

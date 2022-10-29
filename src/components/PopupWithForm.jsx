@@ -6,24 +6,24 @@ function PopupWithForm({ name, title, btnText, children, onSubmit, isValid }) {
 
     return (
 
-        <>
-            <form
-                className="popup__form"
-                name={`form-${name}`}
-                onSubmit={onSubmit}
+
+        <form
+            className="popup__form"
+            name={`form-${name}`}
+            onSubmit={onSubmit}
+        >
+            <h3 className="popup__title">{title}</h3>
+            {children}
+            <button
+                type="submit"
+                className={classBtnSubmit}
+                value={btnText}
+                disabled={!isValid}
             >
-                <h3 className="popup__title">{title}</h3>
-                {children}
-                <button
-                    type="submit"
-                    className={classBtnSubmit}
-                    value={btnText}
-                    disabled={!isValid}
-                >
-                    {btnText}
-                </button>
-            </form>
-        </>
+                {btnText}
+            </button>
+        </form>
+
     );
 }
 
