@@ -70,7 +70,7 @@ function App({ history }) {
           setIsInfoTooltipPopupOpen(true);
           setImageForInfoTooltip(AcceptRegist);
           setTextForInfoTooltip("Вы успешно зарегистрировались!");
-          handleSignIn(formData);
+          setUserEmail(formData.email);
           setLoggedIn(true);
           history.push('/')
         }
